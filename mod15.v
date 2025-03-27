@@ -17,3 +17,7 @@ begin
 end
 end
 endmodule
+
+property rt;
+    @(posedge clk) rst |=> data_out==0;
+endproperty
