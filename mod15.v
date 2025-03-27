@@ -25,4 +25,7 @@ endproperty
 property down;
         @(posedge clk) disable iff(rst)
         (!mode && dat_out!=4'd0) |=> data_out==($past(data_out-1));
+property up;
+        @(posedge clk) disable iff(rst)
+        (mode && data_out!=4'd14) |=> data_out==($past(data_out+1));
 endproperty
