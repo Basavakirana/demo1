@@ -21,3 +21,8 @@ endmodule
 property rt;
     @(posedge clk) rst |=> data_out==0;
 endproperty
+
+property down;
+        @(posedge clk) disable iff(rst)
+        (!mode && dat_out!=4'd0) |=> data_out==($past(data_out-1));
+endproperty
